@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Breakout</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="background.js" async></script>
+    <script src="breakout.js" async></script>
+    <script src="mobile/minBreakout.js"></script>
+    <script src="mobile/minGame.js"></script>
+    <script src="sidebar.js" async></script>
+    <script src="nav.js" async></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+    />
+  </head>
+  <body>
+    <nav class="nav-cont" id="nav">
+      <div class="nav-links" id="nav-links">
+        <div id="start-cont">
+          <div><h3 class="start">Start Tutorial</h3></div>
+          <div><img src="./images/right-arrow.png" alt="" /></div>
+        </div>
+        <a href="step-1/step1.html">Getting Started</a>
+        <a href="step-2/step2.html">Canvas Basics</a>
+        <a href="#">Collision Detection</a> <a href="#">Paddle Controls</a>
+      </div>
+    </nav>
+    <div class="header">
+      <div class="header-text">
+        <h1 class="header-h1">Build breakout using pure JavaScript</h1>
+        <h1 class="mobile-header">Build breakout using JavaScript</h1>
+        <div class="menu-icon" onclick="sidebar()">&#9776;</div>
+      </div>
+    </div>
+    <div class="push-down">
+      <div class="background">
+        <div class="home-text">
+          <h2>Make Breakout</h2>
+          <button class="home-button">See Tutorial!</button>
+        </div>
+        <canvas id="background"></canvas>
+        <canvas id="min-canvas" height="400"></canvas>
+        <div class="overlay"></div>
+      </div>
+      <div class="breakout-preview">
+        <div class="preview-header">
+          <h2>Create a 2d game</h2>
+          <p>
+            Learn how to create breakout using JavaScript rendered on the HTML5
+            canvas tag
+          </p>
+          <canvas id="min-game" height="320"></canvas>
+          <figure class="preview-snippet">
+            <figcaption>Drawing a ball onto the canvas example:</figcaption>
+            <pre>
+             <code class="language-js">
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+
+  var x = canvas.width / 2;
+  var y = canvas.height - 30;
+
+  var ballRadius = 10;
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+  }
+             </code>
+          </pre>
+          </figure>
+        </div>
+        <div class="breakout">
+          <h2>Breakout</h2>
+          <p>
+            In this step-by-step tutorial we will create this simple breakout
+            game with JavaScript!
+          </p>
+          <p class="controls">
+            Use mouse to move the paddle or left and right keys
+          </p>
+          <canvas
+            id="myCanvas"
+            width="480"
+            height="480"
+            onclick="pause()"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+      <a href="step-1/step1.html">Getting Started</a>
+      <a href="step-2/step2.html">Canvas Basics</a>
+      <a href="#">Collision Detection</a> <a href="#">Paddle Controls</a>
+    </div>
+    <div class="footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto"
+    rel="stylesheet"
+  />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
+  <link rel="stylesheet" href="step4.css" />
+  <script src="step4.js"></script>
+  <!-- <script src="step3complete.js" defer></script> -->
+  </head>
+  <body>
+    <nav class="navbar-cont" id="nav">
+      <div class="navbar-links" id="nav-links">
+            <a href="../index.html">Home</a> <a href="#">Getting Started</a>
+        <a href="../step-2/step2.html">Canvas Basics</a>  <a href="../step-3/step3.html" >Animations</a> <a href="#" class="active">Collision Detection</a>
+    </nav>
+    <div class="header">
+       <h1>Collision Detection</h1>
+    </div>
+    <main class="main-cont">
+        <div class="directions">
+            <h2>Collision Detection</h2>
+            <p>Now we're going to change the direction of the ball 
+               when it hits a wall. To do this we will change the dx
+               and dy variables when the ball touches the edge of 
+               the canvas.
+            </p>
+            <p>
+                First, add another variable called ballRadius under your other 
+                variables and set it to 10.
+            </p>
+        </div>
+        <figure class="code">
+            <pre>
+                <code class="language-js">
+var ballRadius = 10;</code>
+            </pre>
+        </figure>
+        <div class="directions">
+                <h2>Wall Bouncing</h2>
+                <p>Now we will write if statements to check if the ball hits a wall
+                then we will change the dx or dy variable to its opposite value.
+                </p>
+            </div>
+        <figure class="code">
+            <pre>
+                <code class="language-js">
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+
+    x += dx;
+    y += dy;
+                    //right wall                    //left wall
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+      dx = -dx;
+    }
+            //top                       //bottom
+    if (y + dy < ballRadius || y + dy > canvas.height - ballRadius) {
+      dy = -dy;
+    }
+
+    requestAnimationFrame(draw);
+  }          </code>
+            </pre>
+        </figure>
+        <div class="directions">
+            <p>
+                The two if statements above change the dx and dy variables to its opposite
+                value anytime it hits one of the four walls. The reason why we subtract
+                ballRadius or use a less than symbol in the conditionals is so that the ball will
+                bounce off the edge of the wall and not sink in halfway before changing 
+                directions. Also, there will be no reason to have it bounce off the bottom in the 
+                full game since it will just deduct a life if the ball hits the bottom.
+            </p>
+        </div>
+        <canvas id="step4" width="480" height="320"></canvas>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,430 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+* button:focus {
+  outline: none;
+}
+
+canvas {
+  background: #eee;
+  display: block;
+}
+
+body {
+  font-family: "Roboto";
+}
+
+#min-game {
+  display: none;
+}
+
+.nav-cont {
+  position: fixed;
+  top: -8vh;
+  z-index: 2;
+  width: 100%;
+  height: 8vh;
+  background-color: #ffff;
+  -webkit-box-shadow: 0px 15px 5px -1px rgba(255, 255, 255, 0.11);
+  -moz-box-shadow: 0px 15px 5px -1px rgba(255, 255, 255, 0.11);
+  box-shadow: 0px 15px 5px -1px rgba(255, 254, 254, 0.11);
+}
+
+.nav-links {
+  width: 70%;
+  height: 8vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0;
+}
+
+.nav-cont a {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.header {
+  width: 100%;
+  background-color: #f4f7fa;
+  height: 10vh;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 32px;
+  padding-right: 2%;
+  cursor: pointer;
+}
+
+.header-text {
+  height: 10vh;
+  letter-spacing: 1px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-h1 {
+  padding-left: 2%;
+  color: black;
+  white-space: nowrap;
+}
+
+.mobile-header {
+  display: none;
+}
+
+.background {
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.overlay {
+  position: absolute;
+  top: 10vh;
+  background-color: #dbfbee;
+  opacity: 0.7;
+  height: 400px;
+  width: 100%;
+}
+
+.class {
+  color: #61d38d;
+  color: #dbfbee;
+}
+
+#first-h1 {
+  display: block;
+}
+
+#background {
+  width: 100%;
+  height: 400px;
+}
+
+.home-text {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin: auto;
+  background-color: transparent;
+  height: 30vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-text h2 {
+  font-size: 30px;
+  color: black;
+  margin: 22px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.home-button {
+  background-color: #61d38d;
+  border-color: #61d38d;
+  color: white;
+  height: 22%;
+  width: 60%;
+  font-size: 25px;
+}
+
+.breakout-preview {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+
+.preview-header {
+  max-width: 40%;
+}
+
+.preview-header h2 {
+  color: #61d38d;
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.preview-header p {
+  font-weight: lighter;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: gray;
+  max-width: 80%;
+  padding-bottom: 20px;
+}
+
+.preview-snippet pre {
+  display: block;
+  margin-left: 0;
+  margin: 0;
+}
+
+.breakout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 40%;
+}
+
+.breakout p {
+  font-weight: lighter;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: gray;
+  max-width: 80%;
+  text-align: left;
+}
+
+.breakout h2 {
+  color: #61d38d;
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.controls {
+  padding-top: 20px;
+  text-align: left;
+  color: black;
+  white-space: nowrap;
+}
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  background-color: #fcfdff;
+}
+
+#start-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 140px;
+  position: relative;
+  left: 2%;
+}
+
+.start {
+  color: #61d38d;
+  letter-spacing: 1px;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 5;
+  width: 25vw;
+  right: -25vw;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: 1s;
+  background-color: white;
+  border-top: solid 1px #dbfbee;
+  border-left: solid 1px #dbfbee;
+}
+
+.sidebar a {
+  color: black;
+  text-decoration: none;
+  padding-top: 8%;
+  padding-left: 4%;
+  margin: 5px;
+  font-size: 18px;
+}
+
+.show {
+  position: fixed;
+  right: 0;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: white;
+  transition: 1s;
+}
+
+#min-canvas {
+  display: none;
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 2%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-h1 {
+    font-size: 25px;
+  }
+
+  .nav-cont {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .header {
+    position: fixed;
+    z-index: 3;
+  }
+
+  .push-down {
+    padding-top: 10vh;
+  }
+
+  .breakout-preview {
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+  }
+
+  .preview-header {
+    max-width: 70%;
+    margin-bottom: 8%;
+    border-right: solid 1px #61d38d;
+  }
+
+  .breakout {
+    max-width: 70%;
+    border-right: solid 1px #61d38d;
+  }
+
+  .preview-snippet pre {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .header-h1 {
+    font-size: 25px;
+  }
+
+  .sidebar {
+    width: 40vw;
+    right: -40vw;
+  }
+
+  .show {
+    right: 0;
+    height: 100%;
+    transition: 1s;
+  }
+}
+
+@media (max-width: 950px) {
+  .header-h1 {
+    display: none;
+  }
+
+  .mobile-header {
+    display: inline;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .menu-icon {
+    font-size: 25px;
+  }
+
+  .preview-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin-bottom: 8%;
+    border-right: none;
+  }
+
+  .preview-header p {
+    text-align: center;
+  }
+
+  .breakout {
+    align-items: center;
+    border: none;
+  }
+
+  .breakout p {
+    text-align: center;
+  }
+
+  .breakout h2 {
+    text-align: center;
+  }
+
+  .controls {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .preview-snippet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #myCanvas {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-button {
+    width: 92%;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .preview-snippet {
+    display: none;
+  }
+
+  #min-game {
+    display: block;
+  }
+
+  #min-canvas {
+    display: block;
+  }
+
+  #background {
+    display: none;
+  }
+
+  .sidebar {
+    width: 50vw;
+    right: -50vw;
+  }
+
+  .show {
+    right: 0;
+    height: 100%;
+    transition: 1s;
+  }
+}

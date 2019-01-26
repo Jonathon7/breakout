@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto"
+    rel="stylesheet"
+  />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
+  <link rel="stylesheet" href="step1.css" />
+  </head>
+  <body>
+    <nav class="navbar-cont" id="nav">
+      <div class="navbar-links" id="nav-links">
+            <a href="../index.html">Home</a> <a href="#" class="active">Getting Started</a>
+        <a href="../step-2/step2.html">Canvas Basics</a>  <a href="../step-3/step3.html">Animations</a> <a href="#">Collision Detection</a>
+       
+    </nav>
+    <div class="header">
+       <h1> Setting up the Project</h1>
+    </div>
+    <main class="main-cont">
+        <div class="directions">
+            <h2>HTML</h2>
+            <p>Since this game is rendered entirely on the HTML canvas element we need to set up the HTML structure of the game. 
+                In your text editor, create an index.html file and add the canvas element and set the 
+                id to myCanvas. Also set the width to 480 and the height to 320.
+            </p>
+        </div>
+        <div class="directions">
+            <h2>CSS</h2>
+            <p>
+                Now create a css file and call it index.css and add the following code: <br>
+                Don't forget to link your stylesheet in your HTML file.
+            </p>
+        </div>
+        <figure class="code">
+            <pre>
+                <code class="language-css">
+    * {
+    padding: 0;
+    margin: 0;
+    }
+    
+    canvas {
+    background: #dbfbee;
+    display: block;
+    margin: auto;
+    }
+                </code>
+            </pre>
+        </figure>
+        <div class="directions">
+            <h2>Javascript</h2>
+            <p>Create a JavaScript file and name it breakout.js
+               and add a script tag at the top of your HTML file  in the head tag and set the src 
+                to breakout.js.
+            </p>
+        </div>
+        <div class="directions">
+            <h2>Next Step</h2>
+            <p>That's it for the initial setup. Now we can begin going through
+                the basics of canvas.
+            </p>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+  </body>
+</html>

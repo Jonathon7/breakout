@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto"
+    rel="stylesheet"
+  />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
+  <link rel="stylesheet" href="step3.css" />
+  <script src="step3.js" ></script>
+  <script src="step3complete.js" defer></script>
+  </head>
+  <body>
+    <nav class="navbar-cont" id="nav">
+      <div class="navbar-links" id="nav-links">
+            <a href="../index.html">Home</a> <a href="#">Getting Started</a>
+        <a href="../step-2/step2.html">Canvas Basics</a>  <a href="#" class="active">Animations</a> <a href="../step-4/step4.html">Collision Detection</a>
+       
+    </nav>
+    <div class="header">
+       <h1> Animations in Canvas</h1>
+    </div>
+    <main class="main-cont">
+        <div class="directions">
+            <h2>Animations</h2>
+            <p>To make objects move in canvas we need to define 
+                a draw function to update the canvas after each frame.
+                For this we will use requestAnimationFrame().
+            </p>
+            <p>
+                Delete the canvas shapes we created in the previous step and replace it with
+                the following code: 
+            </p>
+            <p><strong>Sidenote:</strong> Since canvas is a DOM element, the JavaScript we write
+               might try to update the canvas before it is loaded which will cause errors
+               so we will wrap all of our code in the window.onload function which will
+               only execute the code after the DOM is fully loaded.
+            </p>
+        </div>
+        <figure class="code">
+            <pre>
+                <code class="language-js">
+window.onload = function() {
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+    
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(100, 100, 10, 0, Math.PI*2);
+    ctx.fillStyle = "#61d38d";
+    ctx.fill();
+  }
+};           </code>
+            </pre>
+        </figure>
+        <div class="directions">
+            <h2>Making the Animation</h2>
+            <p>Now that we have a drawBall function we need to 
+                add it to a function that we will repeatedly call with requestAnimationFrame() 
+                to repaint the ball each frame.
+            </p>
+        </div>
+        <figure class="code">
+                <pre>
+                    <code class="language-js">
+window.onload = function() {
+   var canvas = document.getElementById("myCanvas");
+   var ctx = canvas.getContext("2d");
+      
+   function drawBall() {
+    ctx.beginPath();
+    ctx.arc(100, 100, 10, 0, Math.PI*2);
+    ctx.fillStyle = "#61d38d";
+    ctx.fill();
+  }
+
+   function draw() {
+    drawBall();
+    requestAnimationFrame(draw);
+  }         
+
+   draw()
+} </code>
+                </pre>
+            </figure>
+            <div class="directions">
+                <h2>Moving the Ball</h2>
+                <p>If you ran your code now the ball will be repainted each frame
+                    but you won't actually see it move yet. Let's fix that, add the 
+                    following lines to your code below your other variables: 
+                </p>
+            </div>
+            <figure class="code">
+                    <pre>
+                        <code class="language-js">
+   var x = canvas.width / 2;
+   var y = canvas.height - 30;
+
+   var dx = 2;
+   var dy = -2; </code>
+                    </pre>
+                </figure>
+            <div class="directions">
+                <p>These first two variables will define the starting point of
+                    the ball. The second two will be the direction and speed of the 
+                    ball. Positive dx moves the ball right, negative moves it left;
+                    Positive dy moves the ball down, negative moves it up;
+                </p>
+            </div>
+            <div class="directions">
+                <p>
+                    Now instead of the hardcoded coordinates 100, 100, we will
+                    use the new variables we created to update the position
+                    of the ball.
+                </p>
+            </div>
+            <figure class="code">
+                    <pre>
+                        <code class="language-js">
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, 10, 0, Math.PI*2);
+      ctx.fillStyle = "#61d38d";
+      ctx.fill();
+  } 
+
+    function draw() {
+      drawBall();
+
+      x += dx;
+      y += dy;
+  
+      requestAnimationFrame(draw);
+  }</code>
+                    </pre>
+                </figure>
+                <div class="directions">
+                    <p>
+                        Now the starting position of the ball is set to
+                        the x and y variables. And these variables are
+                        being updated each frame with the draw function
+                        and requestAnimationFrame() which adds the dx and dy 
+                        variables to its x and y position each frame.
+                    </p>
+                </div>
+        <canvas id="step3" height="320" width="480"></canvas>
+        <div class="directions">
+            <h2>Clearing the Canvas</h2>
+            <p>The position of the ball is being updated
+                each frame but it's drawing another ball on
+                top of the other each time. To fix this
+                we need to clear the canvas each time the ball's
+                position is updated.
+            </p>
+        </div>
+        <figure class="code">
+                <pre>
+                    <code class="language-js">
+ function draw() {
+      clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+
+      x += dx;
+      y += dy;
+  
+      requestAnimationFrame(draw);
+  }</code>
+                </pre>
+            </figure>
+            <canvas id="step3complete" width="480" height="320"></canvas>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+  </body>
+</html>

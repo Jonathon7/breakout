@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto"
+    rel="stylesheet"
+  />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
+  <link rel="stylesheet" href="step2.css" />
+
+  <script src="step2.js"></script>
+  </head>
+  <body>
+    <nav class="navbar-cont" id="nav">
+      <div class="navbar-links" id="nav-links">
+        <a href="../index.html">Home</a>
+          <a href="../step-1/step1.html">Getting Started</a>
+        <a href="../step-2/step2.html" class="active">Canvas Basics</a> 
+        <a href="../step-3/step3.html">Animations</a>
+        <a href="#">Collision Detection</a>
+        
+    </nav>
+    <div class="header">
+       <h1>Canvas Basics</h1>
+    </div>
+    <main class="main-cont">
+        <div class="directions">
+            <h2>Canvas</h2>
+            <p>To render graphics on the canvas we need to create
+                 a reference to it in JavaScript. Add the following code 
+                 in your breakout.js file: 
+            </p>
+        </div>
+        <figure class="code">
+            <pre>
+                <code class="language-js">
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");   
+                </code>
+            </pre>
+        </figure>
+        <div class="directions">
+          <p>
+            The canvas variable stores the reference to the canvas and the ctx variable
+            stores it's context which is what we actually 
+            use to paint on the canvas.
+          </p>
+        </div>
+        <div class="directions">
+          <h2>
+            Drawing on the Canvas
+          </h2>
+          <p>
+            We will be using only two shapes on the canvas to create
+            breakout. Here is an example of how to draw a rectangle:
+          </p>
+        </div>
+        <figure class="code">
+          <pre>
+              <code class="language-js">
+  ctx.beginPath();
+  ctx.rect(0, 0, 20, 20);
+  ctx.fillStyle="#61d38d";
+  ctx.fill();
+  ctx.closePath();     </code>
+          </pre>
+      </figure>
+      <div class="directions">
+        <p>
+          ctx.beginPath() discards any old path and indicates that you are starting
+          a new path for the shape that is being drawn. The .rect() function allows you to
+          draw four lines and then fill those lines with a color. The first two parameters in the function
+          are the top and left coordinates of the shape. The second two 
+          parameters are the width and height of the shape in pixels. The fillStyle() and 
+          fill() functions will fill the shape with a color. These two functions only 
+          work on a closed path otherwise the color will leak and fill the entire
+          canvas.
+        </p>
+      </div>
+      <div class="directions">
+        <h2>Drawing a Circle</h2>
+      </div>
+      <figure class="code">
+        <pre>
+            <code class="language-js">
+  ctx.beginPath();
+  ctx.arc(200, 200, 10, 0, Math.PI * 2);
+  ctx.fillStyle = "#61d38d";
+  ctx.fill();
+  ctx.closePath();       </code>
+        </pre>
+    </figure>
+    <div class="directions">
+      <p>
+        This example is the same as before except we are using the 
+        arc() function to draw the shape. This function takes 6 parameters. The first
+        two are the coordinates for where the shape is going to be drawn on
+        the canvas. The third parameter is the radius of the arc. The next two
+        parameters are the start angle and the end angle of the arc. So in order
+        to draw a full circle you have to use the Math.PI function. The last parameter
+        is omitted from the example (optional) but it takes a boolean value of true or false.
+        False will draw the arc clockwise and true (default) will draw the arc counter-clockwise.
+      </p>
+    </div>
+    <div class="directions">
+      <p>Your canvas should look something like this: </p>
+    </div>
+    <canvas id="step2" height="320" width="480"></canvas>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+  </body>
+</html>
