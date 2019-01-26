@@ -127,7 +127,6 @@ function breakout() {
               b.status = 0;
               ++score;
               if (score == brickRowCount * brickColumnCount) {
-                alert("You win, Congratulations");
                 document.location.reload();
               }
             }
@@ -143,7 +142,6 @@ function breakout() {
             b.status = 0;
             ++score;
             if (score == brickRowCount * brickColumnCount) {
-              alert("You win, Congratulations");
               document.location.reload();
             }
           }
@@ -334,7 +332,6 @@ function breakout() {
       } else {
         lives--;
         if (!lives) {
-          alert("GAME OVER");
           document.location.reload();
         } else {
           x = canvas.width / 2;
