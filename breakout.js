@@ -127,7 +127,7 @@ function breakout() {
               b.status = 0;
               ++score;
               if (score == brickRowCount * brickColumnCount) {
-                document.location.reload();
+                // document.location.reload();
               }
             }
           }
@@ -142,7 +142,7 @@ function breakout() {
             b.status = 0;
             ++score;
             if (score == brickRowCount * brickColumnCount) {
-              document.location.reload();
+              // document.location.reload();
             }
           }
         }
@@ -332,7 +332,7 @@ function breakout() {
       } else {
         lives--;
         if (!lives) {
-          document.location.reload();
+          // document.location.reload();
         } else {
           x = canvas.width / 2;
           y = canvas.height - 30;

@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="index.css" />
     <script src="background.js" async></script>
     <script src="breakout.js" async></script>
-    <script src="mobile/minBreakout.js"></script>
-    <script src="mobile/minGame.js"></script>
     <script src="sidebar.js" async></script>
     <script src="nav.js" async></script>
     <link
@@ -36,17 +34,13 @@
     <div class="header">
       <div class="header-text">
         <h1 class="header-h1">Build breakout using pure JavaScript</h1>
-        <h1 class="mobile-header">Build breakout using JavaScript</h1>
+        <h1 class="mobile-header">JavaScript Game</h1>
         <div class="menu-icon" onclick="sidebar()">&#9776;</div>
       </div>
     </div>
     <div class="push-down">
       <div class="background">
-        <div class="home-text">
-          <h2>Make Breakout</h2>
-          <button class="home-button">See Tutorial!</button>
-        </div>
-        <canvas id="background"></canvas>
+        <canvas id="background" height="400"></canvas>
         <canvas id="min-canvas" height="400"></canvas>
         <div class="overlay"></div>
       </div>
