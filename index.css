@@ -93,7 +93,8 @@ body {
 }
 
 #background {
-  box-shadow: 0px 0px 5px 1px gray;
+  overflow: scroll;
+  box-shadow: 0px 0px 5px 1px rgb(227, 227, 227);
 }
 
 .class {
@@ -402,6 +403,10 @@ body {
 }
 
 @media (max-width: 500px) {
+  .breakout-preview {
+    max-width: 100%;
+  }
+
   .breakout h2 {
     display: none;
   }
@@ -410,21 +415,9 @@ body {
     max-width: 100%;
   }
 
-  .preview-snippet {
+  .controls {
     display: none;
   }
-
-  /* #min-game {
-    display: block;
-  } */
-
-  #min-canvas {
-    display: block;
-  }
-  /* 
-  #background {
-    display: none;
-  } */
 
   .sidebar {
     width: 50vw;
@@ -435,5 +428,9 @@ body {
     right: 0;
     height: 100%;
     transition: 1s;
+  }
+
+  .footer {
+    height: 5vh;
   }
 }
