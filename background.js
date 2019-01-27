@@ -8,7 +8,7 @@ window.onload = function() {
   window.addEventListener("resize", resizeCanvas, false);
 
   function resizeCanvas() {
-    canvasBG.width = window.outerWidth;
+    canvasBG.width = window.innerWidth;
     background();
   }
 

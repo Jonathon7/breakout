@@ -14,14 +14,22 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
 />
   <link rel="stylesheet" href="step1.css" />
+  <script src="menu.js"></script>
   </head>
   <body>
     <nav class="navbar-cont" id="nav">
       <div class="navbar-links" id="nav-links">
-            <a href="../index.html">Home</a> <a href="#" class="active">Getting Started</a>
+            <a href="../index.html">Home</a><a href="#" class="active">Getting Started</a>
         <a href="../step-2/step2.html">Canvas Basics</a>  <a href="../step-3/step3.html">Animations</a> <a href="#">Collision Detection</a>
-       
+       <div class="menu" onclick="menu()">
+            &#9776;
+       </div>
     </nav>
+    <div id="dropdown" class="dropdown">
+       <a href="../step-2/step2.html" class="menu-link">Canvas Basics</a> 
+       <a href="../step-3/step3.html" class="menu-link">Animations</a> 
+       <a href="#" class="menu-link">Collision Detection</a>
+    </div>
     <div class="header">
        <h1> Setting up the Project</h1>
     </div>

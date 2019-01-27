@@ -41,6 +41,14 @@ body {
   color: #61d38d;
 }
 
+.menu {
+  display: none;
+}
+
+.dropdown {
+  display: none;
+}
+
 .header {
   margin-top: 8vh;
   letter-spacing: 1px;
@@ -71,4 +79,78 @@ body {
 
 .code {
   max-width: 90%;
+}
+
+@media (max-width: 1000px) {
+  .navbar-links {
+    width: 80%;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-links {
+    width: 40%;
+  }
+
+  .navbar-links a {
+    white-space: nowrap;
+    padding-left: 10px;
+  }
+
+  .navbar-links .active {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  a:not(.active):not(.menu-link) {
+    display: none;
+  }
+
+  .navbar-links {
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  .dropdown {
+    display: flex;
+    position: fixed;
+    top: 8vh;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    transition: 1s;
+  }
+
+  .dropdown a {
+    text-decoration: none;
+    color: black;
+    margin: 20px;
+  }
+
+  .hide-menu {
+    display: flex;
+    position: fixed;
+    top: -50vh;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    transition: 1s;
+  }
+
+  .main-cont {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .directions {
+    max-width: 80%;
+    margin: auto;
+  }
 }
